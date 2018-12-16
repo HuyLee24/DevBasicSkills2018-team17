@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RandomValues</title>
+        <h3>Chooes any range of numbers and see distribution.</h3>
+        <style>
+            .random-button,
+            .classify-wrapper {
+                display: none;
+            }
+
+            .random-button.show,
+            .classify-wrapper.show {
+                display: block;
+            }
+ 
+            #result2 {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #result2 p {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <b>Enter minimum number: </b>
+        <input type="text" id="min-number" size="8" maxlength="8">
+        <b>Enter maximun number: </b>
+        <input type="text" id="max-number" size="8" maxlength="8">
+
+        <script>
+            function generate() {
+                var minElement = document.getElementById("min-number");
+                var maxElement = document.getElementById("max-number");
+
+                var min = parseInt(minElement.value);
+                var max = parseInt(maxElement.value);
+
+                if ((/[^0-9]/g.test(min)) || (/[^0-9]/g.test(max)) || min > max || min == "" || max == "") {
+                    alert ("You must enter decimal number for min and max. Also min < max.");
+                    minElement.value = "";
+                    minElement.focus();
+                    maxElement.value = "";
+                    maxElement.focus();
+                    return false;
+                } else {
+                    var range = "You have typed min number: " + min + " and max number: " + max + "." + "<br>";
+                    range = range + "Your range will start from " + min + " to " + max + "." + "<br>" ;
+                    range = range + " Click Random button to randomly pick any number in range. " + "<br>";
+                    document.getElementById("result1").innerHTML = range ;
+                }
+
+                // show random button
+                var randomButtonElement = document.querySelector('.random-button');
+                randomButtonElement.classList.add('show');
+            }
+
+            var randomNumberArray = [];
+            function radomNumber() {
+                var min = Math.ceil(document.getElementById("min-number").value);
+                var max = Math.floor(document.getElementById("max-number").value);
+
+                var randomInterger = Math.floor(Math.random() * (max - min + 1)) + min;
+                var template = `<p>${randomInterger}</p>`
+                document.getElementById("result2").insertAdjacentHTML('beforeend', template);
+                randomNumberArray.push(randomInterger);
+                
+                // Show classify wrapper
+                var classifyWrapperElement = document.querySelector('.classify-wrapper');
+                classifyWrapperElement.classList.add('show');
+            
+            }
+
+            function classify() {
+                var textinputElement = document.querySelector('#classify-input');
+                var classifyResultElement = document.querySelector('#classify-result');
+                var classifyInputValue = parseInt(textinputElement.value);
+                
+                var count = 0;
+                for (var i = 0; i < randomNumberArray.length; i++) {
+                    if (classifyInputValue === randomNumberArray[i]) {
+                        count += 1;
+                    }
+                }
+
+                classifyResultElement.innerHTML = count;
+            }
+        </script>
+        <br><br>
+        <button onclick="generate()">Generate</button>
+        <br><br>
+        <div id="result1"></div>
+        <br>   
+        <button class="random-button" onclick="radomNumber()">Random</button>
+        <br>
+        <div id = "result2"></div>
+        
+        <!-- Classify stuff -->
+        <div class="classify-wrapper">
+            <input id="classify-input" type="text" placeholder="Please type a number">
+            <button onclick="classify()">Classify</button>
+            <div>Result is: <span id='classify-result'></span></div>
+        </div>
+    </body>
+</html>
