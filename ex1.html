@@ -1,0 +1,419 @@
+<!doctype HTML> 
+<html>
+
+<head>
+<title>my app</title>
+<link type="text/css" rel="stylesheet" href="stylesheet.css">
+<script type="text/javascript" src="scripts.js"></script>
+
+<style>
+        .tab-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .tab {
+            padding: 5px 5px;
+            background: #dedede;
+            color: #000;
+            width: 50%;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background: #818181;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .content-container {
+            display: none;
+            padding: 25px 0;
+        }
+
+        .content-container.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<!-- ==========================================================================HEADER============================================= -->
+<div id="header">
+<h3>EXERCICE 1</h3> 
+</div>
+
+
+<!-- =================================================================MENU========================================================= -->
+<div id="navbar">
+          <ul>
+		        <li><a href="index.html">home</a></li>
+		  </ul>
+ </div>
+<!-- =================================================================Description======================================================= -->
+<div class="sideright"> 
+
+Create a tool for numbering system conversions. The tool must contain at least the four numbering systems: BIN, OCT, DEC, and HEX. Additional requirements: Input validation. (Example: a bin input may contain only 0s and 1s, otherwise a user is informed). 
+
+</div>
+<!-- =================================================================EXERCICE====================================================== -->
+
+<div class="main"> 
+    <div>
+            <div class="tab-container">
+                <div class="tab active " id="dec">Decimal</div>
+                <div class="tab " id="bin">Binary</div>
+                <div class="tab " id="oct">Octal</div>
+                <div class="tab " id="hex">Hexadecimal</div>
+            </div>
+    </div>   
+
+    <div class="content-container active" id="dec-container">
+            <b>Enter for decimal number: </b>
+            <input type = "text" id = "deci" size = "15" maxlength = "15" />
+            <br><br>
+            <button onclick="dec()">Convert</button>
+    </div>    
+    <div class="content-container " id="bin-container">
+            <b>Enter for binary number: </b>
+            <input type = "text" id = "bina" size = "15" maxlength = "15" />
+            <br><br>
+            <button onclick="bin()">Convert</button>
+    </div>    
+    <div class="content-container " id="oct-container">
+            <b>Enter for octal number: </b>
+            <input type = "text" id = "octal" size = "15" maxlength = "15" />
+            <br><br>
+            <button onclick="oct()">Convert</button>
+    </div>    
+    <div class="content-container " id="hex-container">
+            <b>Enter for hexadecimal number: </b>
+            <input type = "text" id = "hexa" size = "15" maxlength = "15" />
+            <br><br>
+            <button onclick="hex()">Convert</button>
+    </div>    
+
+<br><br>
+<script type="text/javascript">
+var decTabEle = document.getElementById("dec");
+
+var decTabContentEle = document.getElementById("dec-container");
+
+
+
+
+var binTabEle = document.getElementById("bin");
+
+var binTabContentEle = document.getElementById("bin-container");
+
+
+
+
+var octTabEle = document.getElementById("oct");
+
+var octTabContentEle = document.getElementById("oct-container");
+
+
+
+
+var hexTabEle = document.getElementById("hex");
+
+var hexTabContentEle = document.getElementById("hex-container");
+
+
+
+
+var activeClass = 'active'; 
+
+decTabEle.addEventListener("click", selectdecTab);
+
+binTabEle.addEventListener("click", selectbinTab);
+
+octTabEle.addEventListener("click", selectoctTab);
+
+hexTabEle.addEventListener("click", selecthexTab);
+
+
+
+
+function selectdecTab() {
+
+// Activate current tab
+
+decTabEle.classList.add(activeClass); // activate tab
+
+decTabContentEle.classList.add(activeClass); // activate tab content
+
+// Hide the other tab
+
+binTabEle.classList.remove(activeClass);
+
+binTabContentEle.classList.remove(activeClass);
+
+octTabEle.classList.remove(activeClass);
+
+octTabContentEle.classList.remove(activeClass);
+
+hexTabEle.classList.remove(activeClass);
+
+hexTabContentEle.classList.remove(activeClass);
+
+}
+
+
+
+
+function selectbinTab() {
+
+// Activate current tab
+
+binTabEle.classList.add(activeClass); // activate tab
+
+binTabContentEle.classList.add(activeClass); // activate tab content
+
+// Hide the other tab
+
+decTabEle.classList.remove(activeClass);
+
+decTabContentEle.classList.remove(activeClass);
+
+octTabEle.classList.remove(activeClass);
+
+octTabContentEle.classList.remove(activeClass);
+
+hexTabEle.classList.remove(activeClass);
+
+hexTabContentEle.classList.remove(activeClass);
+
+}
+
+
+
+
+function selectoctTab() {
+
+// Activate current tab
+
+octTabEle.classList.add(activeClass); // activate tab
+
+octTabContentEle.classList.add(activeClass); // activate tab content
+
+// Hide the other tab
+
+binTabEle.classList.remove(activeClass);
+
+binTabContentEle.classList.remove(activeClass);
+
+decTabEle.classList.remove(activeClass);
+
+decTabContentEle.classList.remove(activeClass);
+
+hexTabEle.classList.remove(activeClass);
+
+hexTabContentEle.classList.remove(activeClass);
+
+}
+
+
+
+
+function selecthexTab() {
+
+// Activate current tab
+
+hexTabEle.classList.add(activeClass); // activate tab
+
+hexTabContentEle.classList.add(activeClass); // activate tab content
+
+// Hide the other tab
+
+decTabEle.classList.remove(activeClass);
+
+decTabContentEle.classList.remove(activeClass);
+
+octTabEle.classList.remove(activeClass);
+
+octTabContentEle.classList.remove(activeClass);
+
+binTabEle.classList.remove(activeClass);
+
+binTabContentEle.classList.remove(activeClass);
+
+}
+
+
+
+
+function dec() {
+
+var x1 = document.getElementById("deci").value;
+
+if ((/[^0-9]/g.test(x1))
+|| x1 == "") {
+
+alert ("You must enter a decimal number!");
+
+document.getElementById("deci").value = "";
+
+document.getElementById("deci").focus();
+
+return false;
+
+}
+
+x1 = parseInt(x1);
+
+var bin1 = x1.toString(2);
+
+var hex1 = x1.toString(16).toUpperCase();
+
+var octal1 = x1.toString(8);
+
+var figs1 = "The decimal number is: " + x1 + "." + "<br>";
+
+figs1 = figs1 + "The binary representation of " + x1 + " is " + bin1
++ "." + "<br>";
+
+figs1 = figs1 + "The hexadecimal representation of " + x1 + " is " + hex1
++ "." + "<br>";
+
+figs1 = figs1 + "The octal representation of " + x1 + " is " + octal1
++ "." + "<br>";
+
+document.getElementById("result").innerHTML = figs1;
+
+}
+
+function bin() {
+
+var x2 = document.getElementById("bina").value;
+
+if ((/[^0-1]/g.test(x2))
+|| x2 == "") {
+
+alert ("You must enter a binary number!");
+
+document.getElementById("bina").value = "";
+
+document.getElementById("bina").focus();
+
+return false;
+
+}
+
+x2 = parseInt(x2,2);
+
+var dec2 = x2.toString(10);
+
+var hex2 = x2.toString(16).toUpperCase();
+
+var octal2 = x2.toString(8);
+
+var figs2 = "The binary number is: " + x2 + "." + "<br>";
+
+figs2 = figs2 + "The decimal representation of " + x2 + " is " + dec2
++ "." + "<br>";
+
+figs2 = figs2 + "The hexadecimal representation of " + x2 + " is " + hex2
++ "." + "<br>";
+
+figs2 = figs2 + "The octal representation of " + x2 + " is " + octal2
++ "." + "<br>";
+
+document.getElementById("result").innerHTML = figs2;
+
+}
+
+function oct() {
+
+var x3 = document.getElementById("octal").value;
+
+if ((/[^0-7]/g.test(x3))
+|| x3 == "") {
+
+alert ("You must enter an octal number!");
+
+document.getElementById("octal").value = "";
+
+document.getElementById("octal").focus();
+
+return false;
+
+}
+
+x3 = parseInt(x3,8);
+
+var bin3 = x3.toString(2);
+
+var hex3 = x3.toString(16).toUpperCase();
+
+var dec3 = x3.toString(10);
+
+var figs3 = "The octal number is: " + x3 + "." + "<br>";
+
+figs3 = figs3 + "The binary representation of " + x3 + " is " + bin3
++ "." + "<br>";
+
+figs3 = figs3 + "The hexadecimal representation of " + x3 + " is " + hex3
++ "." + "<br>";
+
+figs3 = figs3 + "The decimal representation of " + x3 + " is " + dec3
++ "." + "<br>";
+
+document.getElementById("result").innerHTML = figs3;
+
+} 
+
+function hex() {
+
+var x4 = document.getElementById("hexa").value;
+
+if ( x4 == "") {
+
+alert ("You must enter a hexadecimal number!");
+
+document.getElementById("hexa").value = "";
+
+document.getElementById("hexa").focus();
+
+return false;
+
+}
+
+x4 = parseInt(x4,16);
+
+var bin4 = x4.toString(2);
+
+var dec4 = x4.toString(10);
+
+var octal4 = x4.toString(8);
+
+var figs4 = "The hexadecimal number is: " + x4 + "." + "<br>";
+
+figs4 = figs4 + "The binary representation of " + x4 + " is " + bin4
++ "." + "<br>";
+
+figs4 = figs4 + "The decimal representation of " + x4 + " is " + dec4
++ "." + "<br>";
+
+figs4 = figs4 + "The octal representation of " + x4 + " is " + octal4
++ "." + "<br>";
+
+document.getElementById("result").innerHTML = figs4;
+
+} 
+
+</script>
+<br>
+ <b>Result:</b><div id = "result"></div>
+</div>
+
+<!-- ==================================================================FOOTER================================================== -->
+<div id="footer">
+MATH FUNCTIONALITIES <br> By OUSSAMA LGHACHI & LE QUANG HUY
+</div>
+</body>
+
+
+</html>

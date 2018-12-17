@@ -1,0 +1,112 @@
+body {
+	background-color: #9c9f84;
+	margin: 0px;
+	font-family: Verdana, georgia, serif;
+	font-size: 14px;
+}
+/* <!-- =========================================================HEADER============================================= --> */
+#header {
+	background-color: #5c755e;
+	margin: 10px;
+	height: 90px;
+	border-radius: 5px;
+	
+}
+
+/* <!-- =========================================================MENU========================================================= --> */
+#navbar ul {
+	background-color: #000;
+	list-style-type:none;
+	text-align:center;
+	margin: 10px;
+	border-radius: 5px;
+	padding:5px;
+}
+#navbar ul li {
+	display:inline;
+}
+#navbar ul li a {
+	text-decoration:none;
+	font-family:arial;
+	padding: .2em 1em;
+	color: #fff;
+	background-color:#000;
+}
+#navbar ul li a:hover {
+	color: #000;
+	background-color:#fff;
+}
+/* ======================================description or exercice================================================== */
+.main { 
+    background-color: #e5e4d7;
+	margin-top: 10px;
+	margin-right: 320px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+    padding: 20px;
+    font-size: 110%;
+	border-radius: 5px;
+}
+.main1 { 
+    background-color: #e5e4d7;
+	margin-top: 10px;
+	margin-right: 60px;
+	margin-left: 60px;
+	margin-bottom: 10px;
+    padding: 20px;
+    font-size: 110%;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+.sideright { 
+    background-color: #e5e4d7;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+    padding: 20px;
+    font-size: 105%;
+	border-radius: 5px;
+	float: right;
+	width: 260px;
+	clear:right;
+}
+#home {text-align: center;}
+/* ==================================titles=================================================== */
+h1 {
+	font-size: 120%;
+	color: red;
+} 
+h2 {
+	font-size: 120%;
+	color: darkblue;
+} 
+h3 {
+	
+	font-size: 250%;
+	text-align: center;
+	color:#e5e4d7;
+	font-family: "Century Gothic", "Gill Sans", Arial, sans-serif;
+	margin: 0px;
+	
+	position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);position: relative;
+}
+
+/* ======================================Footer================================== */
+#footer {
+	background-color: #5c755e;
+    margin: 10px;
+    height: 60px;
+    clear:both;
+    border-radius: 5px;
+    color: #efe5d0;
+    text-align: center;
+    padding: 15px;
+    font-size: 90%;
+}
+span { font-size: 140%;}

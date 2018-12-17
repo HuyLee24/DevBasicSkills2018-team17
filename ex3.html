@@ -1,0 +1,112 @@
+<!doctype HTML> 
+<html>
+
+<head>
+<title>my app</title>
+<link type="text/css" rel="stylesheet" href="stylesheet.css">
+<script type="text/javascript" src="scripts.js"></script>
+    <style>
+        .tab-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .tab {
+            padding: 5px 10px;
+            background: #dedede;
+            color: #000;
+            width: 50%;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background: #818181;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .content-container {
+            display: none;
+            padding: 25px 0;
+        }
+
+        .content-container.active {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+<!-- =========================================================HEADER============================================= -->
+<div id="header">
+<h3>EXERCICE 3</h3> 
+</div>
+
+
+<!-- =========================================================Menu============================================= -->
+<div id="navbar">
+          <ul>
+		        <li><a href="index.html">home</a></li>
+		  </ul>
+ </div>
+
+ 
+ <!-- =========================================================Description============================================= -->
+<div class="sideright"> 
+<p>Combinatorics
+Create a simple tool for Combinatorics.
+
+The tool is used to calculate either combinations or permutations. In the case of permutations, also the choice of sampling (sampling without or with replacement) must be taken into account. Additional requirements: Disable sampling options if combinations were chosen.</p>
+</div>
+
+<!-- =========================================================exercice============================================= -->
+<div class="main"> 
+ <div>
+        <div class="tab-container">
+            <div class="tab " id="com">Combination</div>
+            <div class="tab active" id="pem">Permutation</div>
+        </div>
+    </div>
+    
+    <div class="content-container " id="com-container">
+        <b>Enter for "n" element </b>
+        <input type = "text" id = "n1" size = "15" maxlength = "15" />
+        <b>Enter for "k" element </b>
+        <input type = "text" id = "k1" size = "15" maxlength = "15" /> 
+        <br><br>
+
+        <button id="combination" >Calculate Combination</button>
+      
+    </div>
+
+    <div class="content-container active" id="pem-container">
+        <b>Enter for "n" element </b>
+        <input type = "text" id = "n2" size = "15" maxlength = "15" />
+        <b>Enter for "k" element </b>
+        <input type = "text" id = "k2" size = "15" maxlength = "15" /> 
+        <br><br>
+        <input type="checkbox" id="hello">Replacement<br>
+        <br>
+       
+        <button id="permutation" >Calculate Permutation</button>
+    </div>
+    
+    <script src="scripts.js"></script>
+
+    <br>
+<b>Result:</b><div id="result"></div></div>
+
+
+<!-- =========================================================Footer============================================= -->
+<div id="footer">
+MATH FUNCTIONALITIES <br> By OUSSAMA LGHACHI & LE QUANG HUY
+</div>
+
+
+
+</body>
+
+
+</html>
